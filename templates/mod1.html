@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Textual Video to Speech Interface</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container mx-auto mt-36">
+      <div class="my-8 flex items-center justify-center pb-5">
+        <h2 class="text-3xl">Textual Video to Speech Interface</h2>
+      </div>
+      <h3 class="text-2xl flex items-center justify-center">
+        Select Your Video
+      </h3>
+      <form
+        action="/upload"
+        method="post"
+        enctype="multipart/form-data"
+        class="my-4"
+      >
+        <div class="flex justify-center items-center flex-col">
+          <label
+            for="file-upload"
+            class="cursor-pointer bg-gray-500 text-white px-4 py-2 rounded-md text-md font-bold hover:bg-red-600"
+          >
+            Browse
+          </label>
+          <input
+            id="file-upload"
+            type="file"
+            name="file"
+            accept="video/*"
+            class="hidden"
+            onchange="displayFileInfo(this)"
+          />
+          <span id="file-info" class="text-gray-500 pt-4 pb-5"
+            >No file selected</span
+          >
+          <video
+            id="video-preview"
+            class="rounded-xl hidden"
+            controls
+            width="400"
+            height="400"
+          ></video>
+          <br /><br /><br />
+          <div class="pt-5">
+            <input
+              type="submit"
+              class="bg-red-500 text-white px-4 py-2 rounded-md text-md font-bold cursor-pointer hover:bg-red-600"
+              value="Upload"
+            />
+          </div>
+        </div>
+      </form>
+      {% if results_available %}
+      <div
+        id="processing-results"
+        class="flex flex-col justify-center items-center"
+      >
+        <div class="text-center mt-8">
+          <h3 class="text-2xl">Processing Results</h3>
+        </div>
+        <div class="mt-8">
+          <video
+            id="video-preview"
+            class="rounded-xl"
+            controls
+            width="400"
+            height="400"
+            src="{{ video_src }}"
+          ></video>
+        </div>
+        <div class="text-center mt-8 flex justify-center gap-3">
+          <button
+            class="bg-red-500 text-white px-4 py-2 rounded-md text-md font-bold cursor-pointer hover:bg-red-600"
+            onclick="downloadAll()"
+          >
+            Download All (ZIP)
+          </button>
+          <button
+            class="bg-red-500 text-white px-4 py-2 rounded-md text-md font-bold cursor-pointer hover:bg-red-600"
+            onclick="downloadText()"
+          >
+            Download Text File
+          </button>
+          <button
+            class="bg-red-500 text-white px-4 py-2 rounded-md text-md font-bold cursor-pointer hover:bg-red-600"
+            onclick="downloadAudio()"
+          >
+            Download Audio File
+          </button>
+        </div>
+      </div>
+
+      {% endif %}
+    </div>
+    <script>
+      function displayFileInfo(input) {
+        const file = input.files[0];
+        const fileInfo = document.getElementById("file-info");
+        const videoPreview = document.getElementById("video-preview");
+        if (file) {
+          fileInfo.textContent = file.name;
+          if (file.type.startsWith("video/")) {
+            videoPreview.src = URL.createObjectURL(file);
+            videoPreview.classList.remove("hidden");
+          } else {
+            videoPreview.classList.add("hidden");
+          }
+        } else {
+          fileInfo.textContent = "No file selected";
+          videoPreview.classList.add("hidden");
+        }
+      }
+
+      function downloadAll() {
+        window.location.href = "/download/all";
+      }
+
+      function downloadText() {
+        window.location.href = "/download/text";
+      }
+
+      function downloadAudio() {
+        window.location.href = "/download/audio";
+      }
+    </script>
+  </body>
+</html>
