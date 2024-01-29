@@ -19,49 +19,95 @@
     />
   </head>
   <body>
-    <header class="fixed top-0 left-0 right-0 z-[1000] p-6 bg-gray-100 shadow-2xl rounded-b-2xl">
+    <header
+      class="fixed top-0 left-0 right-0 z-[1000] p-6 bg-gray-100 shadow-2xl rounded-b-2xl"
+    >
       <div class="container mx-auto flex items-center justify-between">
         <div class="flex items-center gap-2">
-          <i class="fa-solid fa-bolt text-5xl font-bold text-red-500 animate-bounce"></i>
+          <i
+            class="fa-solid fa-bolt text-5xl font-bold text-red-500 animate-bounce"
+          ></i>
           <a href="#" class="text-2xl font-sans font-semibold">Heading</a>
         </div>
         <ul class="hidden lg:flex gap-10">
           <li>
-            <a class="text-gray-700 hover:text-red-500 text-xl font-medium" href="#mod1">Mod 1</a>
+            <a
+              class="text-gray-700 hover:text-red-500 text-xl font-medium"
+              href="#mod1"
+              >Mod 1</a
+            >
           </li>
           <li>
-            <a class="text-gray-700 hover:text-red-500 text-xl font-medium" href="#">Mod 2</a>
+            <a
+              class="text-gray-700 hover:text-red-500 text-xl font-medium"
+              href="#"
+              >Mod 2</a
+            >
           </li>
           <li>
-            <a class="text-gray-700 hover:text-red-500 text-xl font-medium" href="#">About</a>
+            <a
+              class="text-gray-700 hover:text-red-500 text-xl font-medium"
+              href="#"
+              >About</a
+            >
           </li>
           <li>
-            <a class="text-gray-700 hover:text-red-500 text-xl font-medium" href="#">Contact</a>
+            <a
+              class="text-gray-700 hover:text-red-500 text-xl font-medium"
+              href="#"
+              >Contact</a
+            >
           </li>
         </ul>
         <div class="hidden lg:flex">
-          <a href="#" class="bg-red-500 text-white px-4 py-2 rounded-md text-md font-bold cursor-pointer hover:bg-red-600">Get Started</a>
+          <a
+            href="#"
+            class="bg-red-500 text-white px-4 py-2 rounded-md text-md font-bold cursor-pointer hover:bg-red-600"
+            >Get Started</a
+          >
         </div>
         <div class="text-2xl cursor-pointer lg:hidden toggle_btn">
           <i class="fa-solid fa-bars"></i>
         </div>
 
         <!-- drop down menu -->
-        <div class="absolute right-8 top-20 w-80 bg-red-50 border-red-200 border-2 overflow-hidden rounded-md list-none lg:hidden dropdown_menu">
+        <div
+          class="absolute right-8 top-20 w-80 bg-red-50 border-red-200 border-2 overflow-hidden rounded-md list-none lg:hidden dropdown_menu hidden"
+        >
           <li class="p-3 flex items-center justify-center">
-            <a class="text-gray-700 hover:text-red-500 text-xl font-medium" href="#mod1">Mod 1</a>
+            <a
+              class="text-gray-700 hover:text-red-500 text-xl font-medium"
+              href="#mod1"
+              >Mod 1</a
+            >
           </li>
           <li class="p-3 flex items-center justify-center">
-            <a class="text-gray-700 hover:text-red-500 text-xl font-medium" href="#">Mod 2</a>
+            <a
+              class="text-gray-700 hover:text-red-500 text-xl font-medium"
+              href="#"
+              >Mod 2</a
+            >
           </li>
           <li class="p-3 flex items-center justify-center">
-            <a class="text-gray-700 hover:text-red-500 text-xl font-medium" href="#">About</a>
+            <a
+              class="text-gray-700 hover:text-red-500 text-xl font-medium"
+              href="#"
+              >About</a
+            >
           </li>
           <li class="p-3 flex items-center justify-center">
-            <a class="text-gray-700 hover:text-red-500 text-xl font-medium" href="#">Contact</a>
+            <a
+              class="text-gray-700 hover:text-red-500 text-xl font-medium"
+              href="#"
+              >Contact</a
+            >
           </li>
           <li class="p-3 flex items-center justify-center">
-            <a href="#" class="bg-red-500 text-white px-4 py-2 rounded-md text-md font-bold cursor-pointer w-full flex justify-center hover:bg-red-600">Get Started</a>
+            <a
+              href="#"
+              class="bg-red-500 text-white px-4 py-2 rounded-md text-md font-bold cursor-pointer w-full flex justify-center hover:bg-red-600"
+              >Get Started</a
+            >
           </li>
         </div>
       </div>
@@ -76,7 +122,9 @@
 
         const isOpen = dropDownMenu.classList.contains("hidden");
 
-        toggleBtnIcon.className = isOpen ? "fa-solid fa-bars" : "fa-solid fa-xmark";
+        toggleBtnIcon.className = isOpen
+          ? "fa-solid fa-bars"
+          : "fa-solid fa-xmark";
       });
     </script>
   </body>
